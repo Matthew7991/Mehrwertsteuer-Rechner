@@ -109,13 +109,17 @@ console.log("Number() has already been used in all examples above")
 console.clear()
 
 const steuerRechnerForm = document.querySelector(".mehrwertsteuer-rechner-form");
-const inputNetto = document.querySelector("#netto")
+
 const inputBrutto = document.querySelector("#brutto")
-const inputSteuersatzStandart = document.querySelector("#steuern-prozent-standard")
+const inputNettoBrutto = document.querySelectorAll('input[name="netto-brutto"')
+
+const inputSteuersatzButtons = document.querySelectorAll('input[name="steuern-prozent"]')
 const inputSteuersatzVerringert = document.querySelector("#steuern-prozent-verringert")
+
 const inputBetragLabel = document.querySelector(".betrag-label")
-const outputSteuern = document.querySelector("#output-mehrwetssteuerbetrag")
 const outputBetragLabel = document.querySelector(".output-betrag-label")
+
+const outputSteuern = document.querySelector("#output-mehrwetssteuerbetrag")
 const outputBetrag = document.querySelector("#output-betrag")
 
 function changeLabels() {
@@ -126,32 +130,29 @@ function changeLabels() {
     inputBetragLabel.textContent = "Mehrwertsteuer absziehen (Brutto zu Netto)"
     outputBetragLabel.textContent = "Bruttobetrag (Endpreis)"
   }}
-  
-  function calcTaxes(event) {
-    event.preventDefault()
-    const inputBetrag = document.querySelector("#betrag").value
-    const inputBetragNumber = Number(inputBetrag)
-    let steuersatz = 1.19;
-  
-    if (inputSteuersatzVerringert.checked) {
-      steuersatz = 1.07;
-    }
-  
-    if (!inputBrutto.checked) {
-      outputSteuern.textContent = (inputBetragNumber * steuersatz - inputBetragNumber).toFixed(2) + " €";
-      outputBetrag.textContent = (inputBetragNumber * steuersatz).toFixed(2) + " €";
-    } else {
-      outputSteuern.textContent = (inputBetragNumber - inputBetragNumber / steuersatz).toFixed(2) + " €";
-      outputBetrag.textContent = (inputBetragNumber / steuersatz).toFixed(2) + " €";
-    }
+
+
+function calcTaxes(event) {
+  event.preventDefault()
+  const inputBetrag = document.querySelector("#betrag").value
+  const inputBetragNumber = Number(inputBetrag)
+  let steuersatz = 1.19;
+
+  if (inputSteuersatzVerringert.checked) {
+    steuersatz = 1.07;
   }
 
-  inputNetto.addEventListener("change", changeLabels)
-  inputNetto.addEventListener("change", calcTaxes)
-  inputBrutto.addEventListener("change", changeLabels)
-  inputBrutto.addEventListener("change", calcTaxes)
+  if (!inputBrutto.checked) {
+    outputSteuern.textContent = (inputBetragNumber * steuersatz - inputBetragNumber).toFixed(2) + " €";
+    outputBetrag.textContent = (inputBetragNumber * steuersatz).toFixed(2) + " €";
+  } else {
+    outputSteuern.textContent = (inputBetragNumber - inputBetragNumber / steuersatz).toFixed(2) + " €";
+    outputBetrag.textContent = (inputBetragNumber / steuersatz).toFixed(2) + " €";
+  }
+}
 
-  inputSteuersatzStandart.addEventListener("change", calcTaxes)
-  inputSteuersatzVerringert.addEventListener("change", calcTaxes)
+  inputNettoBrutto.forEach((button) => button.addEventListener("change", () => {changeLabels(); calcTaxes(event)}))
+
+  inputSteuersatzButtons.forEach((button) => button.addEventListener("change", calcTaxes))
 
   steuerRechnerForm.addEventListener("submit", calcTaxes)
