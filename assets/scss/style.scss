@@ -1,1 +1,56 @@
 @use "./reset.scss";
+
+body {
+  font-family: sans-serif;
+}
+
+.mehrwertsteuer-rechner {
+  max-width: 400px;
+}
+
+h2 {
+  color: rgb(64, 64, 64);
+  font-size: 1.3em;
+}
+
+fieldset {
+  border: none;
+  padding: 0px;
+}
+
+.background {
+  background-color: #f3f6f8;
+  margin: 4px 0;
+  padding: 8px;
+}
+
+.input,
+.output {
+  outline: 2px grey solid;
+}
+
+input[type=number] {
+  display: block;
+}
+
+input[type=submit] {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  background-color: turquoise;
+  color: white;
+  font-weight: 700;
+  padding: 4px 0;
+}
+
+output {
+  display: block;
+}
+
+.output legend {
+  padding-left: 8px;
+  color: blue;
+  font-weight: 500;
+}

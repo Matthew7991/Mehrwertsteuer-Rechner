@@ -11,69 +11,83 @@
 			<section>
 				<article class="mehrwertsteuer-rechner">
 					<form class="mehrwertsteuer-rechner-form">
-						<fieldset>
-							<legend>Mehrwertsteuer-Rechner</legend>
-							<fieldset>
-								<legend>Was soll berechnet werden?</legend>
-								<div>
-									<input type="radio" name="netto-brutto" id="netto" checked />
-									<label for="netto"
-										>Mehrwertsteuer aufschlagen (Netto zu Brutto)</label
+						<h2>Mehrwertsteuer-Rechner</h2>
+						<div class="input">
+							<div class="background">
+								<fieldset>
+									<legend>Was soll berechnet werden?</legend>
+									<div>
+										<input
+											type="radio"
+											name="netto-brutto"
+											id="netto"
+											checked
+										/>
+										<label for="netto"
+											>Mehrwertsteuer aufschlagen (Netto zu Brutto)</label
+										>
+									</div>
+									<div>
+										<input type="radio" name="netto-brutto" id="brutto" />
+										<label for="brutto"
+											>Mehrwertsteuer absziehen (Brutto zu Netto)</label
+										>
+									</div>
+								</fieldset>
+							</div>
+							<div class="background">
+								<fieldset>
+									<legend>Mehrwertsteuersatz</legend>
+									<div>
+										<input
+											type="radio"
+											name="steuern-prozent"
+											id="steuern-prozent-standard"
+											checked
+										/>
+										<label for="steuern-prozent-standard">19 %</label>
+										<input
+											type="radio"
+											name="steuern-prozent"
+											id="steuern-prozent-verringert"
+										/>
+										<label for="steuern-prozent-verringert">7 %</label>
+									</div>
+								</fieldset>
+							</div>
+							<div class="background">
+								<fieldset>
+									<label for="betrag" class="betrag-label"
+										>Nettobetrag (Preis ohne Mehrwertsteuer) in Euro*</label
 									>
-								</div>
-								<div>
-									<input type="radio" name="netto-brutto" id="brutto" />
-									<label for="brutto"
-										>Mehrwertsteuer absziehen (Brutto zu Netto)</label
-									>
-								</div>
-							</fieldset>
-							<fieldset>
-								<legend>Mehrwertsteuersatz</legend>
-								<div>
-									<input
-										type="radio"
-										name="steuern-prozent"
-										id="steuern-prozent-standard"
-										checked
-									/>
-									<label for="steuern-prozent-standard">19 %</label>
-								</div>
-								<div>
-									<input
-										type="radio"
-										name="steuern-prozent"
-										id="steuern-prozent-verringert"
-									/>
-									<label for="steuern-prozent-verringert">7 %</label>
-								</div>
-							</fieldset>
-							<fieldset>
-								<label for="betrag" class="betrag-label"
-									>Nettobetrag (Preis ohne Mehrwertsteuer) in Euro*</label
-								>
-								<input type="text" name="betrag" id="betrag" required />
-							</fieldset>
+									<input type="number" name="betrag" id="betrag" required />
+								</fieldset>
+							</div>
 							<div><input type="submit" value="BERECHNEN" /></div>
+						</div>
+						<div class="output">
 							<fieldset>
 								<legend>Ergebnis</legend>
-								<div>
+								<div class="background">
 									<label for="output-mehrwetssteuerbetrag"
 										>Mehrwetssteuerbetrag</label
 									>
 									<output
 										name="output-mehrwetssteuerbetrag"
 										id="output-mehrwetssteuerbetrag"
-									></output>
+										>0,00 €</output
+									>
 								</div>
-								<div>
+								<div class="background">
 									<label for="output-betrag" class="output-betrag-label"
 										>Bruttobetrag (Endpreis)</label
 									>
-									<output name="output-betrag" id="output-betrag"></output>
+									<output name="output-betrag" id="output-betrag"
+										>0,00 €</output
+									>
 								</div>
 							</fieldset>
-						</fieldset>
+						</div>
 					</form>
 				</article>
 			</section>
