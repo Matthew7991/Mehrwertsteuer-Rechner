@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="./assets/css/style.css" />
-		<title>Document</title>
+		<title>Mehrwertsteuer-Rechner</title>
 	</head>
 	<body>
 		<main>
@@ -56,14 +56,15 @@
 								</fieldset>
 							</div>
 							<div class="background">
-								<fieldset>
-									<label for="betrag" class="betrag-label"
-										>Nettobetrag (Preis ohne Mehrwertsteuer) in Euro*</label
-									>
-									<input type="number" name="betrag" id="betrag" required />
-								</fieldset>
+								<label for="betrag" class="betrag-label"
+									>Nettobetrag (Preis ohne Mehrwertsteuer) in Euro*</label
+								>
+								<input type="number" name="betrag" id="betrag" required />
 							</div>
-							<div><input type="submit" value="BERECHNEN" /></div>
+
+							<div class="submit">
+								<input type="submit" value="BERECHNEN" />
+							</div>
 						</div>
 						<div class="output">
 							<fieldset>
