@@ -34,22 +34,22 @@
 									<input
 										type="radio"
 										name="steuern-prozent"
-										id="steuern-prozent-default"
+										id="steuern-prozent-standard"
 										checked
 									/>
-									<label for="steuern-prozent-default">19 %</label>
+									<label for="steuern-prozent-standard">19 %</label>
 								</div>
 								<div>
 									<input
 										type="radio"
 										name="steuern-prozent"
-										id="steuern-prozent-lowered"
+										id="steuern-prozent-verringert"
 									/>
-									<label for="steuern-prozent-lowered">7 %</label>
+									<label for="steuern-prozent-verringert">7 %</label>
 								</div>
 							</fieldset>
 							<fieldset>
-								<label for="betrag"
+								<label for="betrag" class="betrag-label"
 									>Nettobetrag (Preis ohne Mehrwertsteuer) in Euro*</label
 								>
 								<input type="text" name="betrag" id="betrag" required />
@@ -59,7 +59,7 @@
 								<legend>Ergebnis</legend>
 								<div>
 									<label for="output-mehrwetssteuerbetrag"
-										>output-Mehrwetssteuerbetrag</label
+										>Mehrwetssteuerbetrag</label
 									>
 									<output
 										name="output-mehrwetssteuerbetrag"
@@ -67,7 +67,9 @@
 									></output>
 								</div>
 								<div>
-									<label for="output-betrag">Bruttobetrag (Endpreis)</label>
+									<label for="output-betrag" class="output-betrag-label"
+										>Bruttobetrag (Endpreis)</label
+									>
 									<output name="output-betrag" id="output-betrag"></output>
 								</div>
 							</fieldset>

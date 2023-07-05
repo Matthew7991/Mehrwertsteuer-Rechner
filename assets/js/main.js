@@ -106,4 +106,52 @@ console.log("%c Number Methods 1.4", "color: white; background-color: red")
 console.log("Number() has already been used in all examples above")
 
 // Mehrwertsteuer-Rechner 3.1
+console.clear()
 
+const steuerRechnerForm = document.querySelector(".mehrwertsteuer-rechner-form");
+const inputNetto = document.querySelector("#netto")
+const inputBrutto = document.querySelector("#brutto")
+const inputSteuersatzStandart = document.querySelector("#steuern-prozent-standard")
+const inputSteuersatzVerringert = document.querySelector("#steuern-prozent-verringert")
+const inputBetragLabel = document.querySelector(".betrag-label")
+const outputSteuern = document.querySelector("#output-mehrwetssteuerbetrag")
+const outputBetragLabel = document.querySelector(".output-betrag-label")
+const outputBetrag = document.querySelector("#output-betrag")
+
+function changeLabels() {
+  if (inputBrutto.checked) {
+    inputBetragLabel.textContent = "Bruttobetrag (Preis inklusive Mehrwertsteuer in Euro"
+    outputBetragLabel.textContent = "Nettobetrag"
+  } else {
+    inputBetragLabel.textContent = "Mehrwertsteuer absziehen (Brutto zu Netto)"
+    outputBetragLabel.textContent = "Bruttobetrag (Endpreis)"
+  }}
+  
+  function calcTaxes(event) {
+    event.preventDefault()
+    const inputBetrag = document.querySelector("#betrag").value
+    const inputBetragNumber = Number(inputBetrag)
+    let steuersatz = 1.19;
+  
+    if (inputSteuersatzVerringert.checked) {
+      steuersatz = 1.07;
+    }
+  
+    if (!inputBrutto.checked) {
+      outputSteuern.textContent = (inputBetragNumber * steuersatz - inputBetragNumber).toFixed(2) + " €";
+      outputBetrag.textContent = (inputBetragNumber * steuersatz).toFixed(2) + " €";
+    } else {
+      outputSteuern.textContent = (inputBetragNumber - inputBetragNumber / steuersatz).toFixed(2) + " €";
+      outputBetrag.textContent = (inputBetragNumber / steuersatz).toFixed(2) + " €";
+    }
+  }
+
+  inputNetto.addEventListener("change", changeLabels)
+  inputNetto.addEventListener("change", calcTaxes)
+  inputBrutto.addEventListener("change", changeLabels)
+  inputBrutto.addEventListener("change", calcTaxes)
+
+  inputSteuersatzStandart.addEventListener("change", calcTaxes)
+  inputSteuersatzVerringert.addEventListener("change", calcTaxes)
+
+  steuerRechnerForm.addEventListener("submit", calcTaxes)
