@@ -100,7 +100,10 @@ console.log(Number(i).toString(2))
 console.log(Number(i).toString(8))
 console.log(Number(i).toString(16))
 
-// Number Methods 1.3
-console.log("%c Number Methods 1.3", "color: white; background-color: red")
+// Number Methods 1.4
+console.log("%c Number Methods 1.4", "color: white; background-color: red")
 
 console.log("Number() has already been used in all examples above")
+
+// Mehrwertsteuer-Rechner 3.1
+

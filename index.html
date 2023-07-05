@@ -8,7 +8,73 @@
 	</head>
 	<body>
 		<main>
-			<section></section>
+			<section>
+				<article class="mehrwertsteuer-rechner">
+					<form class="mehrwertsteuer-rechner-form">
+						<fieldset>
+							<legend>Mehrwertsteuer-Rechner</legend>
+							<fieldset>
+								<legend>Was soll berechnet werden?</legend>
+								<div>
+									<input type="radio" name="netto-brutto" id="netto" checked />
+									<label for="netto"
+										>Mehrwertsteuer aufschlagen (Netto zu Brutto)</label
+									>
+								</div>
+								<div>
+									<input type="radio" name="netto-brutto" id="brutto" />
+									<label for="brutto"
+										>Mehrwertsteuer absziehen (Brutto zu Netto)</label
+									>
+								</div>
+							</fieldset>
+							<fieldset>
+								<legend>Mehrwertsteuersatz</legend>
+								<div>
+									<input
+										type="radio"
+										name="steuern-prozent"
+										id="steuern-prozent-default"
+										checked
+									/>
+									<label for="steuern-prozent-default">19 %</label>
+								</div>
+								<div>
+									<input
+										type="radio"
+										name="steuern-prozent"
+										id="steuern-prozent-lowered"
+									/>
+									<label for="steuern-prozent-lowered">7 %</label>
+								</div>
+							</fieldset>
+							<fieldset>
+								<label for="betrag"
+									>Nettobetrag (Preis ohne Mehrwertsteuer) in Euro*</label
+								>
+								<input type="text" name="betrag" id="betrag" required />
+							</fieldset>
+							<div><input type="submit" value="BERECHNEN" /></div>
+							<fieldset>
+								<legend>Ergebnis</legend>
+								<div>
+									<label for="output-mehrwetssteuerbetrag"
+										>output-Mehrwetssteuerbetrag</label
+									>
+									<output
+										name="output-mehrwetssteuerbetrag"
+										id="output-mehrwetssteuerbetrag"
+									></output>
+								</div>
+								<div>
+									<label for="output-betrag">Bruttobetrag (Endpreis)</label>
+									<output name="output-betrag" id="output-betrag"></output>
+								</div>
+							</fieldset>
+						</fieldset>
+					</form>
+				</article>
+			</section>
 		</main>
 
 		<script src="./assets/js/main.js"></script>
